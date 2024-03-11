@@ -960,6 +960,7 @@ section.MainBanner:before {
     background: #f7f7f7;
     position: absolute;
     margin: 75px 0;
+    z-index: -1;
 }
 
 section.MainBanner .bannerMobil {

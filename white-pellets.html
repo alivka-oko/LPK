@@ -17,23 +17,18 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 
     <!-- Подключение Kwicks -->
     <script src="assets/template/libs/kwicks/jquery.kwicks.min.js"></script>
     <link rel="stylesheet" href="assets/template/libs/kwicks/kwicks.min.css">
 
-
+    <!-- Подключение Lightbox2 -->
+    <link rel="stylesheet" href="assets/template/libs/lightbox2/lightbox.css">
     <!-- Подключение FlexSlider -->
     <script src="assets/template/libs/FlexSlider/jquery.flexslider.js"></script>
     <link rel="stylesheet" href="assets/template/libs/FlexSlider/flexslider.css">
 
-    <!-- Подключение Lightbox2 -->
-    <link rel="stylesheet" href="assets/template/libs/lightbox2/lightbox.css">
-    <script src="assets/template/libs/lightbox2/lightbox.js"></script>
-    <!-- Подключение Остальные подключения -->
+    <!-- Подключение Остальных -->
     <link rel="stylesheet" href="/assets/template/css/style.css">
     <link rel="stylesheet" href="/assets/template/css/media.css">
 
@@ -172,12 +167,11 @@
                     <div id="slider" class="flexslider">
                         <div class="flex-viewport" style="overflow: hidden; position: relative;">
                             <ul class="slides list"
-                                style="width: 1400%; transition-duration: 0s; transform: translate3d(-450px, 0px, 0px);">                                
+                                style="width: 1400%; transition-duration: 0s; transform: translate3d(-450px, 0px, 0px);">
                                 <li class="slides__item flex-active-slide"
                                     style="width: 450px; margin-right: 0px; float: left; display: block;"
                                     data-thumb-alt="">
-                                    <a href="/assets/gallery/17/93.jpg" data-lightbox="17" title="Пеллеты"
-                                        class="slides__item-link">
+                                    <a href="/assets/gallery/17/93.jpg" data-lightbox="17" title="Пеллеты" class="slides__item-link">
                                         <img src="/assets/gallery/17/93.jpg" width="600" alt="" class="slides__item-img"
                                             draggable="false">
                                         <span class="zoom">
@@ -250,7 +244,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                </li>                                
+                                </li>
                             </ul>
                         </div>
                         <ol class="flex-control-nav flex-control-thumbs">
@@ -566,7 +560,9 @@
             </div>
         </div>
     </footer>
-    <div id="lightboxOverlay" class="lightboxOverlay" style="display: none; width: 1199px; height: 2180px;"></div>
+
+
+    <div id="lightboxOverlay" class="lightboxOverlay" style="display: none; width: 1044px; height: 2350px;"></div>
     <div id="lightbox" class="lightbox" style="top: 250px; left: 0px; display: none;">
         <div class="lb-outerContainer" style="width: 1020px; height: 670px;">
             <div class="lb-container"><img class="lb-image" src="/assets/gallery/17/93.jpg" alt=""
@@ -584,8 +580,59 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="remodal-wrapper modal fade" id="callbackModal" tabindex="-1" role="dialog"
+        aria-labelledby="callbackModalLabel" style="display: none;" aria-hidden="true">
+        <div class="remodal modal-dialog" role="document">
+            <div class="remodal-content">
+                <div class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"></div>
+                <div class="remodal-title">
+                    <h3>Заказать звонок</h3>
+                    <span>Оставьте заявку и наш менеджер свяжется с Вами в ближайшее время</span>
+                </div>
+                <form action="contacts" method="post" class="ajax_form af_example" id="RequestCall">
+                    <input type="hidden" name="pageURL" value="https://forest-groups.ru/contacts">
+                    <input type="hidden" name="title" value="Контакты">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="JljkhYUj" value="" placeholder="Имя*">
+                        <span class="error_JljkhYUj"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="ljbghjwk" value=""
+                            placeholder="Номер телефона*">
+                        <span class="error_ljbghjwk"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" value="" placeholder="E-mail">
+                        <span class="error_email"></span>
+                    </div>
+                    <div class="form-group s-message">
+                        <input class="form-control" type="text" name="nospam:blank" value=""
+                            placeholder="Ваше сообщение">
+                        <textarea class="form-control" name="message" value="" placeholder="Ваше сообщение"></textarea>
+                        <span class="error_message"></span>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="custom">
+                            <input class="checkbox" type="checkbox"
+                                onchange="document.getElementById('RequestCallBtn').disabled = !this.checked">
+                            <span class="checkbox-custom"></span>
+                            <span class="label"> <a href="https://forest-groups.ru/assets/doc/privacy-policy.pdf"
+                                    target="_blank">Я соглашаюсь с политикой обработки персональных данных</a></span>
+                        </label>
+                    </div>
+                    <div class="form-button">
+                        <input type="submit" name="RequestCall" class="btn btn-big btn-green" id="RequestCallBtn"
+                            value="Отправить" disabled="">
+                    </div>
 
+                    <input type="hidden" name="af_action" value="4faebcfab493a9709b77db01b9bc15ad">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -595,7 +642,10 @@
     <script src="/assets/template/libs/counter/jquery.counterup.min.js"></script>
     <script src="/assets/template/libs/counter/jquery.waypoints.js"></script>
     <script src="assets/template/libs/FlexSlider/jquery.flexslider.js"></script>
+    <!-- Подключение lightbox -->
     <script src="assets/template/libs/lightbox2/lightbox.js"></script>
+    <!-- <script src="assets/template/libs/lightbox2/lightbox-plus-jquery.min.js"></script> -->
+    <!-- Подключение файла -->
     <script src="assets/template/js/common.js"></script>
 
 </body>

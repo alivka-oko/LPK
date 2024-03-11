@@ -533,3 +533,5 @@
 
   return new Lightbox();
 }));
+
+console.log('ya tt')
