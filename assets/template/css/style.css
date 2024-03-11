@@ -290,6 +290,11 @@ a.btn:focus {
     text-decoration: none;
 }
 
+.nav-link {
+    color: #248d31;
+    text-decoration: underline;
+}
+
 .mainMenu a.nav-link {
     color: #444444;
     text-decoration: none;
@@ -2775,4 +2780,9 @@ footer .black-block .right {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
 }
